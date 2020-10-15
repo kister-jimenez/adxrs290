@@ -1,4 +1,4 @@
-/***************************************************************************//**
+/***************************************************************************/ /**
  *   @file   iio_types.h
  *   @brief  Header file for iio_types
  *   @author Cristian Pop (cristian.pop@analog.com)
@@ -107,15 +107,15 @@ struct iio_attribute {
  */
 struct scan_type {
 	/** 's' or 'u' to specify signed or unsigned */
-	char			sign;
+	char sign;
 	/** Number of valid bits of data */
-	uint8_t 		realbits;
+	uint8_t realbits;
 	/** Realbits + padding */
-	uint8_t			storagebits;
+	uint8_t storagebits;
 	/** Shift right by this before masking out realbits. */
-	uint8_t			shift;
+	uint8_t shift;
 	/** True if big endian, false if little endian */
-	bool			is_big_endian;
+	bool is_big_endian;
 };
 
 /**
@@ -124,19 +124,19 @@ struct scan_type {
  */
 struct iio_channel {
 	/** channel name */
-	char			*name;
+	char *name;
 	/** Chanel type */
-	enum iio_chan_type	ch_type;
+	enum iio_chan_type ch_type;
 	/** Channel number when the same channel type */
-	int 				channel;
+	int channel;
 	/** If modified is set, this provides the modifier. E.g. IIO_MOD_X
-	 *  for angular rate when applied to channel2 will make make the 
+	 *  for angular rate when applied to channel2 will make make the
 	 *  IIO_ANGL_VEL have anglvel_x which corresponds to the x-axis. */
-	int					channel2;
+	int channel2;
 	/** Index to give ordering in scans when read  from a buffer. */
-	int			scan_index;
+	int scan_index;
 	/** */
-	struct scan_type	*scan_type;
+	struct scan_type *scan_type;
 	/** list of attributes */
 	struct iio_attribute **attributes;
 	/** if true, the channel is an output channel */
@@ -145,10 +145,10 @@ struct iio_channel {
 	int32_t reserved;
 	/** Set if channel has a modifier. Use channel2 property to
 	 *  select the modifier to use.*/
-	bool			modified;
+	bool modified;
 	/** Specify if channel has a numerical index. If not set, channel
 	 *  number will be suppressed. */
-	bool			indexed;
+	bool indexed;
 };
 
 /**

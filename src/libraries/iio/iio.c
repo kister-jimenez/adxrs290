@@ -321,13 +321,12 @@ static char *get_channel_id(enum iio_chan_type type)
 static inline void _print_ch_id(char *buff, struct iio_channel *ch)
 {
 	if(ch->modified) {
-		sprintf(buff, "%s_%s", get_channel_id(ch->ch_type), iio_modifier_names[ch->channel2]);
-	}
-	else {
+		sprintf(buff, "%s_%s", get_channel_id(ch->ch_type),
+			iio_modifier_names[ch->channel2]);
+	} else {
 		if(ch->indexed) {
 			sprintf(buff, "%s%d", get_channel_id(ch->ch_type), (int)ch->channel);
-		}
-		else {
+		} else {
 			sprintf(buff, "%s", get_channel_id(ch->ch_type));
 		}
 	}
